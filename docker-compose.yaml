@@ -1,0 +1,14 @@
+version: '3.9'
+services:
+  s001-79:
+    build: .
+    ports:
+     - 9000:8888
+    volumes:
+      - ./test.ipynb:/app/test.ipynb
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities: [gpu]
+    # command: nvidia-smi
